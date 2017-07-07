@@ -13,7 +13,7 @@
 
 ## User Stories
 
-'''
+```
 
 As a card dealer,
 So that I can see what suits I have,
@@ -47,7 +47,7 @@ As a card dealer,
 So that I can deal to players,
 I would like to be able to deal 7 cards to each player, one at a time.
 
-'''
+```
 
 ## Technologies and Dependencies
 
