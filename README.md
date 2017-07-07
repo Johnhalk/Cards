@@ -1,5 +1,5 @@
 ## Deck of Cards programme
-[![Imgur](http://imgur.com/uAiB32I.png)][1]
+![Imgur](http://imgur.com/uAiB32I.png)
 
 ## Core features
 
