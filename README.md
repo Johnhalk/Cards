@@ -60,7 +60,18 @@ I would like to be able to deal 7 cards to each player, one at a time.
 
 ## Installation and Usage
 
-- This programme is written in Python.
+- This programme is written in Python, download Python for your computer below:
+[Windows](https://www.python.org/downloads/windows/)
+[Mac OS](https://www.python.org/downloads/release/python-351/)
+-**Linux**
+It is very likely Linux has Python already installed.
+
+- To check you installed it correctly type the following into the command-line:
+```
+$ python3 --version
+Python 3.5.1
+```
+
 
 - Clone and fork this repo to a desired location on your own computer. Or if received via a zip file, load it from the desired file location saved on your computer.
 
