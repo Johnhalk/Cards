@@ -16,6 +16,12 @@ class Game(Deck, Player):
         self.players.append(new_player)
         print "There are currently", len(self.players) , " Players in the game"
 
+    def show_hands(self):
+        i=0
+        while i < len(self.players):
+            print self.players[i].name, "currently has" , self.players[i].hand
+            i += 1
+
 
     def prepare_game(self):
         self.shuffle_deck()

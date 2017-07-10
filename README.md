@@ -73,21 +73,12 @@ game.add_player('P4', 'Jane')
 game.deck
 game.prepare_game()
 game.deal_one_card_per_player()
-game.players[0].hand
-game.players[1].hand
-game.players[2].hand
-game.players[3].hand
+game.show_hands()
 game.deal_one_card_per_player()
-game.players[0].hand
-game.players[1].hand
-game.players[2].hand
-game.players[3].hand
+game.show_hands()
 game.deck
 game.deal_game()
-game.players[0].hand
-game.players[1].hand
-game.players[2].hand
-game.players[3].hand
+game.show_hands()
 ```
 
 - More to come!
