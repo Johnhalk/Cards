@@ -81,6 +81,11 @@ game.deal_game()
 game.show_hands()
 ```
 
-- More to come!
+## To Do List ##
+
+Add both feature tests and unit tests for each individual class file as well as an overall one for game class to run code for user.
+
+Add method to deck class to create a new card to add to deck.
+Add similar to game?
 
 ## Testing
