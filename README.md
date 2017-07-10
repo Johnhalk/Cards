@@ -60,11 +60,30 @@ I would like to be able to deal 7 cards to each player, one at a time.
 
 ## Installation and Usage
 
-- This is run off of the Command Line. To start please type 'python'
-- Type execfile('game.py') Here you will have loaded up the game and logic to play.
+- This programme is written in Python.
+
+- Clone and fork this repo to a desired location on your own computer. Or if received via a zip file, load it from the desired file location saved on your computer.
+
+- This programme is run directly off the command line. To open your preferred command-line interface look at the instructions below:
+
+**Windows**
+Go to Start menu → All Programs → Accessories → Command Prompt.
+**OS X**
+Go to Applications → Utilities → Terminal.
+**Linux**
+Go to Applications → Accessories → Terminal.
+
+- Next we need to start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
+**Type this into terminal:**
+python
+
+- Next we need to load the file directly into the interactive interpreter. Type execfile('game.py') Here you will have loaded up the game and logic to play.
+**Type this into terminal:**
+execfile('game.py')
+
+- Below runs the entire game, copy and paste into the terminal
 
 ```
-execfile('game.py')
 game=Game()
 game.add_player('P1', 'John')
 game.add_player('P2', 'KG')
@@ -87,5 +106,5 @@ Add both feature tests and unit tests for each individual class file as well as 
 
 Add method to deck class to create a new card to add to deck.
 Add similar to game?
-
+Add more user stories
 ## Testing
