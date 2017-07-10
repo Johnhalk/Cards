@@ -86,11 +86,15 @@ Go to Applications → Accessories → Terminal.
 
 - Next we need to start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
 - **Type this into terminal:**
+```
 python
+```
 
 - Next we need to load the file directly into the interactive interpreter. Type execfile('game.py') Here you will have loaded up the game and logic to play.
 - **Type this into terminal:**
+```
 execfile('game.py')
+```
 
 - Below runs the entire game, copy and paste into the terminal
 
