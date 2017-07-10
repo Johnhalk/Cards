@@ -60,7 +60,32 @@ I would like to be able to deal 7 cards to each player, one at a time.
 
 ## Installation and Usage
 
-- This is run off of the Command Line.
-- More to come!!!
+- This is run off of the Command Line. To start please type 'python'
+- Type execfile('game.py') Here you will have loaded up the game and logic to play.
+execfile('game.py')
+game=Game()
+game.add_player('P1', 'John')
+game.add_player('P2', 'KG')
+game.add_player('P3', 'Eammon')
+game.add_player('P4', 'Jane')
+game.deck
+game.prepare_game()
+game.deal_one_card_per_player()
+game.players[0].hand
+game.players[1].hand
+game.players[2].hand
+game.players[3].hand
+game.deal_one_card_per_player()
+game.players[0].hand
+game.players[1].hand
+game.players[2].hand
+game.players[3].hand
+game.deck
+game.deal_game()
+game.players[0].hand
+game.players[1].hand
+game.players[2].hand
+game.players[3].hand
+- More to come!
 
 ## Testing

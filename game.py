@@ -2,6 +2,8 @@ from deck import Deck
 from player import Player
 import random
 
+MAX_START_OF_HAND = 7
+
 class Game(Deck, Player):
 
     def __init__(self):
@@ -20,7 +22,7 @@ class Game(Deck, Player):
         print self.shuffled
         print self.deck
 
-    def deal_one_card(self):
+    def deal_one_card_per_player(self):
         if self.shuffled == False:
             print "Deck must be shuffled first for a fair game."
         else:
@@ -30,7 +32,14 @@ class Game(Deck, Player):
                 self.players[i].hand.append(draw_card)
                 i += 1
 
-game=Game()
+    def deal_game(self):
+        n=0
+        while n < MAX_START_OF_HAND  and len(self.players[len(self.players)-1].hand) < MAX_START_OF_HAND :
+            self.deal_one_card_per_player()
+            n+=1
+
+
+"""game=Game()
 game.deck
 game.add_player('P1', 'John')
 game.add_player('P2', 'Eammon')
@@ -38,8 +47,8 @@ game.add_player('P3', 'Jane')
 print game.players
 
 print game.prepare_game()
-print game.deal_one_card()
-print game.deal_one_card()
+print game.deal_one_card_per_player()
+print game.deal_one_card_per_player()
 
 print game.players[0].hand
 print game.players[1].hand
@@ -47,4 +56,4 @@ print game.players[2].hand
 
 
 print game.deck
-print len(game.deck)
+print len(game.deck)"""
