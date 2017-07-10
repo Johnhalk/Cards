@@ -8,7 +8,7 @@ class Card(Suit, Value):
     def __init__(self):
         Suit.__init__(self)
         Value.__init__(self)
-        self.actual_cards = list(itertools.product(self.suit, self.value))
+        self.actual_cards = list(itertools.product(self.value, self.suit))
 
 
     def amount_of_cards(self):
