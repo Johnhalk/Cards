@@ -62,6 +62,8 @@ I would like to be able to deal 7 cards to each player, one at a time.
 
 - This is run off of the Command Line. To start please type 'python'
 - Type execfile('game.py') Here you will have loaded up the game and logic to play.
+
+```
 execfile('game.py')
 game=Game()
 game.add_player('P1', 'John')
@@ -86,6 +88,8 @@ game.players[0].hand
 game.players[1].hand
 game.players[2].hand
 game.players[3].hand
+```
+
 - More to come!
 
 ## Testing
