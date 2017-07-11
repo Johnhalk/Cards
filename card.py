@@ -8,53 +8,55 @@ class Card(Suit, Value):
     def __init__(self):
         Suit.__init__(self)
         Value.__init__(self)
-        self.actual_cards = list(itertools.product(self.value, self.suit))
+        self.card_list = list(itertools.product(self.suit, self.value))
 
 
     def amount_of_cards(self):
-        print "The amount of cards are: ", len(self.actual_cards)
+        print "The amount of cards are: ", len(self.card_list)
 
-    def add_new_suit(self, suit):
-        if suit not in self.suit:
-            self.add_suit(suit)
-            self.actual_cards = list(itertools.product(self.value, self.suit))
-        else:
-            print "Suit already exists"
+    def add_new_suit(self):
+        self.add_suit()
+        self.create_card_list()
 
-    def add_new_value(self, value):
-        if value not in self.value:
-            self.add_value(value)
-            self.actual_cards = list(itertools.product(self.value, self.suit))
-        else:
-            print "Value already exists"
+    def add_new_value(self):
+        self.add_value()
+        self.create_card_list()
 
-"""
-    def add_new_card(self, suit, value):
-        if suit not in self.suit and value not in self.value:
-            self.add_suit(suit)
-            self.add_value(value)
-            self.actual_cards = list(itertools.product(self.value, self.suit))
-        else:
-            print "Can not add that card."
-"""
+    def delete_exisiting_suit(self):
+        self.delete_suit()
+        self.create_card_list()
+        return self.card_list
+
+    def delete_exisiting_value(self):
+        self.delete_value()
+        self.create_card_list()
+        return self.card_list
+
+    def create_card_list(self):
+        self.card_list = list(itertools.product(self.suit, self.value))
 
 
 
 
+
+'''
 card=Card()
 print card.value
 print card.suit
-print card.actual_cards
+print card.card_list
 print card.amount_of_cards()
-card.add_new_suit('Dinosaur')
+card.add_new_suit()
 print card.amount_of_cards()
-print card.actual_cards
-card.add_new_value('Joker')
+print card.card_list
+card.add_new_value()
 print card.amount_of_cards()
-print card.actual_cards
-card.add_new_value('Ace')
+print card.card_list
+card.add_new_value()
 print card.amount_of_cards()
-print card.actual_cards
-card.add_new_suit('H')
+print card.card_list
+card.add_new_suit()
 print card.amount_of_cards()
-print card.actual_cards
+print card.card_list
+print card.delete_exisiting_suit()
+print card.delete_exisiting_value()
+'''
