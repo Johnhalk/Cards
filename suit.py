@@ -4,19 +4,15 @@ class Suit(object):
         self.suit = ['H', 'C', 'S', 'D']
 
 
-    def add_suit(self):
-        print "The current suits are:", self.suit
-        suit_type = raw_input('Which suit do you want to add? ')
+    def add_suit(self, suit_type):
         if suit_type.upper() not in self.suit:
             self.suit.append(suit_type.upper())
         else:
             print "Suit already exists."
 
-    def delete_suit(self):
-        print "The current suits are:", self.suit
-        remove_suit = raw_input('Which suit do you want to remove? ')
-        if remove_suit.upper() in self.suit:
-            self.suit.remove(remove_suit.upper())
+    def delete_suit(self, suit_type):
+        if suit_type.upper() in self.suit:
+            self.suit.remove(suit_type.upper())
             return self.suit
         else:
             print "Not a valid suit."

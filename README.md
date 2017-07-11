@@ -123,3 +123,42 @@ Add method to deck class to create a new card to add to deck.
 Add similar to game?
 Add more user stories
 ## Testing
+
+install Pip with this command on the command line
+```
+sudo easy_install pip
+```
+if you get an error run
+```
+sudo chown -R $USER /Library/Python/2.7
+```
+
+Then run the following:
+```
+sudo easy_install pip.
+sudo easy_install virtualenv.
+sudo easy_install pytest
+```
+
+
+## Shuffle a deck of cards!
+Initial thoughts:
+
+```
+def __init__(self, shuffled=False):
+    Card.__init__(self)
+    self.deck = self.card_list
+    self.shuffle_deck_compare = list(self.card_list)
+    self.shuffled = shuffled
+
+def shuffle_deck(self):
+    random.shuffle(self.deck)
+    i=0
+    while i < (len(self.deck) -1):
+        if self.shuffle_deck_compare[i] == self.deck[i]:
+            self.shuffle_deck()
+            i+=1
+        else:
+            self.shuffled = True
+            return self.card_list
+```

@@ -14,21 +14,21 @@ class Card(Suit, Value):
     def amount_of_cards(self):
         print "The amount of cards are: ", len(self.card_list)
 
-    def add_new_suit(self):
-        self.add_suit()
+    def add_new_suit(self, suit_type):
+        self.add_suit(suit_type)
         self.create_card_list()
 
-    def add_new_value(self):
-        self.add_value()
+    def add_new_value(self, value_type):
+        self.add_value(value_type)
         self.create_card_list()
 
-    def delete_exisiting_suit(self):
-        self.delete_suit()
+    def delete_existing_suit(self, suit_type):
+        self.delete_suit(suit_type)
         self.create_card_list()
         return self.card_list
 
-    def delete_exisiting_value(self):
-        self.delete_value()
+    def delete_existing_value(self, value_type):
+        self.delete_value(value_type)
         self.create_card_list()
         return self.card_list
 

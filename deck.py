@@ -5,9 +5,15 @@ class Deck(Card):
 
     def __init__(self, shuffled=False):
         Card.__init__(self)
-        self.deck = self.card_list
-        self.shuffle_deck_compare = list(self.card_list)
+        self.deck = list(reversed(self.card_list))
+        self.shuffle_deck_compare = list(self.deck)
         self.shuffled = shuffled
+
+    def split_deck(self):
+        first_half_of_deck = self.deck[1::2]
+        second_half_of_deck = self.deck[::2]
+        print first_half_of_deck
+        print second_half_of_deck
 
     def shuffle_deck(self):
         random.shuffle(self.deck)
@@ -18,7 +24,7 @@ class Deck(Card):
                 i+=1
             else:
                 self.shuffled = True
-                return self.card_list
+                return self.deck
 
 
     def add_new_card(self):
@@ -33,10 +39,9 @@ class Deck(Card):
         print "and is ", len(self.deck) , "cards long"
 
 
-
+'''
 deck=Deck()
 print deck.shuffle_deck()
-'''
 print deck.show_deck()
 print deck.shuffle_deck()
 print deck.show_deck()
