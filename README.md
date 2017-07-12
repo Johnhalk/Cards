@@ -123,7 +123,7 @@ The game class is initialised by inheriting directly from a deck class and a pla
 
 The player class does not inherit from game.  It is its sole entity.  A player can exist and there can be many but they do not necessarily have a game to be paired with.
 
-##Detailed explanation of each class file:
+## Detailed explanation of each class file:
 
 **suit.py**
 ```
