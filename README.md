@@ -99,6 +99,31 @@ Python 3.5.1 (this should be the output)
 
 ![Imgur](http://imgur.com/7UvxxuQ.png)
 
+Above is the outline for the class architecture design choice.
+
+**suit.py**
+
+The suit class has their own state and is initialised with the suits H, C, D, S - the four necessary to play our game. However there are more possible suits that can be added past the initial four and used in other games that could be created which is why logically suits have their own class.
+
+**value.py**
+
+Similarly to suit, the value class has their own state and is initialised with the values ACE, 2, .. , KING - the values necessary to play our game. However there are more possible values that can be added past the initial values and used in other games that could be created which is why logically value have their own class.
+
+**card.py**
+
+The card class is initialised by inheriting both a suit class and a value class. Logically cards both have suits and values.  Based upon the values and suits available all possible card combinations exist.
+
+**deck.py**
+
+The deck class is initialised by inheriting a card class and uses the cards to form the 52 card deck needed for the game and the decks own functionality.
+
+**game.py**
+
+The game class is initialised by inheriting directly from a deck class and a player class.  A game needs a deck and needs players to function.
+
+**player.py**
+
+The player class does not inherit from game.  It is its sole entity.  A player can exist and there can be many but they do not necessarily have a game to be paired with.
 
 - Start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
 - **Type this into terminal:**
