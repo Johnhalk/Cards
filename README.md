@@ -702,6 +702,9 @@ Add similar to game?
 Add more user stories
 ## Testing
 
+- There are 48 tests in total, all passing:
+![Imgur](http://imgur.com/raNLo6a.png)
+
 install Pip with this command on the command line
 ```
 sudo easy_install pip
