@@ -147,6 +147,71 @@ class Suit(object):
             print "Not a valid suit."
 ```
 
+- When an instance of suit is created it is initialised with H, C, S, D (Hearts, Clubs, Spades, Diamonds.).  The four suits necessary for the game.
+
+- Methods to add more suits or delete more suits (add_suit and delete suit respectively) are added to the file too. This is to expand on any future games that may not require all four suits, or any games that require more.
+
+Feature test:
+```
+python
+execfile('lib/suit.py')
+suit=Suit()
+suit.suit
+suit.add_suit('T')
+suit.add_suit('T')
+suit.suit
+suit.delete_suit('T')
+suit.delete_suit('T')
+suit.suit
+exit()
+```
+
+**value.py**
+
+```
+class Value(object):
+    def __init__(self):
+        self.value = ['ACE', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'JACK', 'QUEEN', 'KING']
+
+
+    def add_value(self, value_type):
+        if value_type.upper() not in self.value:
+            self.value.append(value_type.upper())
+        else:
+            print "Value already exists."
+
+    def delete_value(self, value_type):
+        if value_type.upper() in self.value:
+            self.value.remove(value_type.upper())
+            return self.value
+        else:
+            print "Not a valid value."
+```
+
+- When an instance of value is created it is initialised with values ACE, 2, ... , KING.  The values necessary for our game.
+
+- Methods to add more or delete more values(add_value and delete_value respectively) are added to the file too. This is to expand on any future games that may not require all values, or may require more.
+
+Feature test:
+```
+python
+execfile('lib/value.py')
+value=Value()
+value.value
+value.add_value('Joker')
+value.add_value('Joker')
+value.value
+value.delete_value('Joker')
+value.delete_value('Joker')
+value.value
+exit()
+```
+
+
+
+
+##Quick feature test run:
+
 - Start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
 - **Type this into terminal:**
 ```
