@@ -28,11 +28,11 @@ class Game(Deck, Player):
             print self.deck
 
     def deal_one_card_per_player(self):
-            i=0
-            while i < len(self.players):
-                draw_card = self.deck.pop()
-                self.players[i].hand.append(draw_card)
-                i += 1
+        i=0
+        while i < len(self.players):
+            draw_card = self.deck.pop()
+            self.players[i].hand.append(draw_card)
+            i += 1
 
     def deal_game(self):
         if len(self.players) < MIN_NUMBER_OF_PLAYERS_REQUIRED:

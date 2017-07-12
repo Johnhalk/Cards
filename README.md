@@ -1,49 +1,53 @@
 ## Deck of Cards programme
 ![Imgur](http://imgur.com/uAiB32I.png)
 
-## Core features
+## Core features of task:
 
 - There are four suits: Hearts, Clubs, Spades and Diamonds.
 - There are thirteen values: Ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
 - There will be one deck of 52 cards
 - There will be four players
-- The deck will be created in perfect sequence (ace of hearts at the bottom, two next etc. with the King of diamonds at the top)
--  The deck can be shuffled and have the cards be in a total random order.
--  The cards can be dealt to each player, one card at a time to each player, until each player has 7 cards.
+- The deck arrives in perfect sequence (ace of hearts at the bottom, two next etc. with the King of diamonds at the top)
+-  Shuffle the cards  - We would like to take the deck that is in sequence and shuffle it so that no two cards are still in sequence.
+-  Deal the cards - We would then like to deal seven cards to each player (one card to the each player, then a second card to each player, and so on.
 
 ## User Stories
 
 ```
 
-As a card dealer,
+As a player,
 So that I can see what suits I have,
 I want to be able to see what suits are in play.
 
-As a card dealer,
+As a player,
 So that I can see the range of values,
 I want to be able to see how many values there are.
 
-As a card dealer,
+As a player,
 So that I can see my cards,
 I want to be able to create cards made up of each suit and value combination possible.
 
-As a card dealer,
+As a player,
 So that I can understand my deck,
-I want to be able to create a deck comprised of each value and suit available.
+I want to be able to create a deck comprised of cards that are of each value and suit available.
 
-As a card dealer,
-So that I can deal successfully,
+As a player,
+So that I can play successfully,
 I want to be able to deal to all players playing.
 
-As a card dealer,
+As a player,
 So that I can use my deck,
-I want my deck to perfectly ordered when created.
+I want my deck to perfectly ordered.
 
-As a card dealer,
+As a player,
+So I can play the game,
+I want there to be minimum four players in the game.
+
+As a player,
 So that I can use my deck fairly,
-I want to shuffle all cards in my deck so they are in random order.
+I want to shuffle all cards in my deck so they are in random order and no two cards are still in sequence.
 
-As a card dealer,
+As a player,
 So that I can deal to players,
 I would like to be able to deal 7 cards to each player, one at a time.
 
@@ -52,28 +56,19 @@ I would like to be able to deal 7 cards to each player, one at a time.
 ## Technologies and Dependencies
 
 **Core**
-
+- Python
+- Pip
+- Pytest
 
 **Testing**
 
+- Pytest
+- Pytest-cov
 
 
 ## Installation and Usage
 
-- This programme is written in Python, download Python for your computer below:
-- [Windows](https://www.python.org/downloads/windows/)
-- [Mac OS](https://www.python.org/downloads/release/python-351/)
-- **Linux**
-It is very likely Linux has Python already installed.
-
-- To check you installed it correctly type the following into the command-line:
-```
-$ python3 --version
-Python 3.5.1
-```
-
-
-- Clone and fork this repo to a desired location on your own computer. Or if received via a zip file, load it from the desired file location saved on your computer.
+- If received via a zip file, load it from the desired file location saved on your computer.
 
 - This programme is run directly off the command line. To open your preferred command-line interface look at the instructions below:
 
@@ -84,7 +79,28 @@ Go to Applications → Utilities → Terminal.
 - **Linux**
 Go to Applications → Accessories → Terminal.
 
-- Next we need to start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
+- This programme is written in Python, download Python for your computer below:
+- [Windows](https://www.python.org/downloads/windows/)
+- [Mac OS](https://www.python.org/downloads/release/python-351/)
+- **Linux**
+It is very likely Linux has Python already installed.
+
+- To check you installed it correctly type the following into the command-line:
+```
+$ python3 --version
+Python 3.5.1 (this should be the output)
+```
+
+- Install pip
+- Install pytest
+- Install pytest-cov
+
+## File architecture design choice:
+
+![Imgur](http://imgur.com/7UvxxuQ.png)
+
+
+- Start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
 - **Type this into terminal:**
 ```
 python
@@ -96,23 +112,10 @@ python
 execfile('game.py')
 ```
 
-- Below runs the entire game, copy and paste into the terminal
+- Below runs the entire game, copy and paste into the terminal for a fast demonstration of the game running - game=Game() creates a new instance of game
 
 ```
-game=Game()
-game.add_player('P1', 'John')
-game.add_player('P2', 'KG')
-game.add_player('P3', 'Eammon')
-game.add_player('P4', 'Jane')
-game.deck
-game.prepare_game()
-game.deal_one_card_per_player()
-game.show_hands()
-game.deal_one_card_per_player()
-game.show_hands()
-game.deck
-game.deal_game()
-game.show_hands()
+
 ```
 
 ## To Do List ##
