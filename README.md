@@ -99,8 +99,6 @@ Python 3.5.1 (this should be the output)
 
 ![Imgur](http://imgur.com/7UvxxuQ.png)
 
-Above is the outline for the class architecture design choice.
-
 **suit.py**
 
 The suit class has their own state and is initialised with the suits H, C, D, S - the four necessary to play our game. However there are more possible suits that can be added past the initial four and used in other games that could be created which is why logically suits have their own class.
@@ -124,6 +122,30 @@ The game class is initialised by inheriting directly from a deck class and a pla
 **player.py**
 
 The player class does not inherit from game.  It is its sole entity.  A player can exist and there can be many but they do not necessarily have a game to be paired with.
+
+##Detailed explanation of each class file:
+
+**suit.py**
+```
+class Suit(object):
+
+    def __init__(self):
+        self.suit = ['H', 'C', 'S', 'D']
+
+
+    def add_suit(self, suit_type):
+        if suit_type.upper() not in self.suit:
+            self.suit.append(suit_type.upper())
+        else:
+            print "Suit already exists."
+
+    def delete_suit(self, suit_type):
+        if suit_type.upper() in self.suit:
+            self.suit.remove(suit_type.upper())
+            return self.suit
+        else:
+            print "Not a valid suit."
+```
 
 - Start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
 - **Type this into terminal:**
