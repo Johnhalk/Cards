@@ -152,7 +152,7 @@ class Suit(object):
 - Methods to add more suits or delete more suits (add_suit and delete suit respectively) are added to the file too. This is to expand on any future games that may not require all four suits, or any games that require more.
 
 Feature test for necessary requirements - suits are of H, C, S, D:
-Run from the command-line.
+- Run from the command-line.
 ```
 python
 execfile('lib/suit.py')
@@ -161,7 +161,7 @@ suit.suit
 exit()
 ```
 Feature tests for extra functionality:
-Run from the command-line.
+- Run from the command-line.
 ```
 python
 execfile('lib/suit.py')
@@ -203,7 +203,7 @@ class Value(object):
 - Methods to add more or delete more values(add_value and delete_value respectively) are added to the file too. This is to expand on any future games that may not require all values, or may require more.
 
 Feature test for necessary requirements - values are of Ace, 2, ... , KING:
-Run from the command-line.
+- Run from the command-line.
 ```
 python
 execfile('lib/value.py')
@@ -213,7 +213,7 @@ exit()
 ```
 
 Feature test for extra functionality:
-Run from the command-line.
+- Run from the command-line.
 ```
 python
 execfile('lib/value.py')
@@ -276,7 +276,7 @@ class Card(Suit, Value):
 - In the card class there is added functionality to add new suits and values, delete existing suits and values and create singular types of cards (Good for creating a Joker perhaps?).  Created so the code can be expanded on should any games require more card types.
 
 Feature test for necessary requirements - there should be 52 cards.
-Run from the command-line.
+- Run from the command-line.
 ```
 python
 execfile('lib/card.py')
@@ -287,7 +287,7 @@ exit()
 ```
 
 Feature test for additional functionality:
-Run from the command-line.
+- Run from the command-line.
 ```
 python
 execfile('lib/card.py')
