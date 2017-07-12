@@ -10,6 +10,9 @@ class Card(Suit, Value):
         Value.__init__(self)
         self.card_list = list(itertools.product(self.suit, self.value))
 
+    def create_card_list(self):
+        self.card_list = list(itertools.product(self.suit, self.value))
+
     def amount_of_cards(self):
         print "The amount of cards are: ", len(self.card_list)
 
@@ -36,10 +39,6 @@ class Card(Suit, Value):
 
     def delete_singular_card(self, suit_type, value_type):
         self.card_list.remove((suit_type.upper(), value_type.upper()))
-
-    def create_card_list(self):
-        self.card_list = list(itertools.product(self.suit, self.value))
-
 
 
 
