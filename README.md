@@ -318,6 +318,71 @@ len(card.card_list)
 exit()
 ```
 
+**deck.py**
+
+```
+class Deck(Card):
+
+    def __init__(self, shuffled=False):
+        Card.__init__(self)
+        self.deck = list(reversed(self.card_list))
+        self.shuffle_deck_compare = list(self.deck)
+        self.shuffled = shuffled
+
+    def show_deck(self):
+        print "The deck is comprised of:", self.deck
+
+    def add_new_card_type(self, suit_type, value_type):
+        self.add_new_suit(suit_type)
+        self.add_new_value(value_type)
+        self.deck = list(reversed(self.card_list))
+        self.shuffle_deck_compare = list(self.deck)
+        self.show_deck()
+
+    def delete_card_type(self, suit_type, value_type):
+        self.delete_existing_suit(suit_type)
+        self.delete_existing_value(value_type)
+        self.deck = list(reversed(self.card_list))
+        self.shuffle_deck_compare = list(self.deck)
+        self.show_deck()
+
+    def create_singular_card_to_deck(self, suit_type, value_type):
+        self.create_singular_card(suit_type, value_type)
+        self.deck = list(reversed(self.card_list))
+
+    def delete_singular_card_from_deck(self, suit_type, value_type):
+        self.delete_singular_card(suit_type, value_type)
+        self.deck = list(reversed(self.card_list))
+
+    def shuffle_deck(self):
+        random.shuffle(self.deck)
+        i=0
+        n=0
+        while i < (len(self.deck) -1) and n < (len(self.deck) -1):
+            if (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) == (self.deck[n], self.deck[n+1]):
+                print "Reshuffling..."
+                self.shuffle_deck()
+            elif (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) != (self.deck[n], self.deck[n+1]) and n < (len(self.deck) -1):
+                n+=1
+            elif (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) != (self.deck[n], self.deck[n+1]) and n == (len(self.deck) -1):
+                i+=1
+                n=0
+            else:
+                return
+        else:
+            self.shuffled = True
+            return self.deck
+```
+
+- When an instance of deck class is created it initialises card. To meet the acceptance criteria the deck must arrive in perfect sequence (so, ace of hearts is at the bottom, two of hearts is next, etc. all the way up to king of diamonds on the top).  The card class initialises the cards the opposite way as required hence an instance variable is assigned (self.deck) to the reverse list of the card_list and meeting the criteria.
+
+- A deck is initialised as not shuffled, to avoid a game starting without shuffling == True.
+
+- The other acceptance criteria: Shuffle the cards - We would like to take the deck that is in sequence and shuffle it so that no two cards are still in sequence. Means no two cards can remain in sequence after a shuffle - e.g. for a perfectly sequenced(as explained above) deck this means nowhere in the deck can two cards still be in sequence - e.g. 5 of hearts can not be before a 4 of hearts anywhere even after shuffling.  This applies for all card sequencing.
+
+Initially I used the .random method to randomise but this never met the criteria.  Then I considered splitting a deck into two halves of odd and even indexes then merging the odd index half and even index half back into one deck.  This however eliminated all chances of randomness and made the card order too predictable (got to stop card counting!)
+
+I then
 
 
 ##Quick feature test run:
