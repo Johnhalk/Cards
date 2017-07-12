@@ -1,8 +1,8 @@
 import itertools
 import random
 import os, sys
-from suit import Suit
-from value import Value
+from lib.suit import Suit
+from lib.value import Value
 
 class Card(Suit, Value):
 

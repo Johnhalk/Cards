@@ -110,9 +110,7 @@ sudo easy_install pytest
 sudo easy_install pytest-cov
 ```
 
-That should do it! Success!!
-
-- Try running pytest and see the tests passing.
+That should do it, success !!
 
 ## File architecture design choice:
 
@@ -143,23 +141,6 @@ The game class is initialised by inheriting directly from a deck class and a pla
 The player class does not inherit from game.  It is its sole entity.  A player can exist and there can be many but they do not necessarily have a game to be paired with.
 
 ## Quick feature run down to show functionality:
-
-- **PLEASE NOTE** Due to a file pathing issue I am working to resolve, to run the feature tests you will need to add 'lib.' to each import file in all 6 file classes: suit.py , value.py, card.py, deck.py, game.py, player.py.
-
-E.g for game.py:
-
-```
-from deck import Deck
-from player import Player
-```
-Should read as follows:
-```
-from lib.deck import Deck
-from lib.player import Player
-```
-
-**WHY?** In the current setup the way the path files are pytest runs correctly.  However this causes an error when running feature tests.  The solution to fix this is that as above, however ultimately doing so breaks the correct running of pytest.  Apologies while I work to resolve the issue.
-
 
 **Deck arrives to game in perfect sequence, with all 52 card combinations of the suits and values.**
 - Type into the command line:
@@ -717,6 +698,23 @@ exit()
 - And 100% coverage for most files:
 
 ![Imgur](http://imgur.com/x58KgVo.png)
+
+
+- **PLEASE NOTE** Due to a file pathing issue I am working to resolve, to run the feature tests you will need to remove 'lib.' to each import file in all 3 file classes: card.py, deck.py, game.py. (be sure to save each file before running pytest)
+
+E.g for game.py:
+```
+from lib.deck import Deck
+from lib.player import Player
+```
+
+Should read as follows:
+```
+from deck import Deck
+from player import Player
+```
+
+**WHY?** In the current setup the way the path files are feature tests in the command-line run correctly.  However this causes an error when running pytest.  The solution to fix this is that as above, however ultimately doing so breaks the correct running of feature tests.  Working to resolve the issue.
 
 - See for yourself, type the following in the command-line:
 ```

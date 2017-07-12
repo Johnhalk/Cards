@@ -1,7 +1,7 @@
 import random
 import os, sys
-from deck import Deck
-from player import Player
+from lib.deck import Deck
+from lib.player import Player
 
 MAX_START_OF_HAND = 7
 MIN_NUMBER_OF_PLAYERS_REQUIRED = 4
