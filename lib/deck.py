@@ -1,5 +1,5 @@
-from card import Card
 import random
+from lib.card import Card
 
 class Deck(Card):
 

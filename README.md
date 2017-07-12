@@ -151,7 +151,17 @@ class Suit(object):
 
 - Methods to add more suits or delete more suits (add_suit and delete suit respectively) are added to the file too. This is to expand on any future games that may not require all four suits, or any games that require more.
 
-Feature test:
+Feature test for necessary requirements - suits are of H, C, S, D:
+Run from the command-line.
+```
+python
+execfile('lib/suit.py')
+suit=Suit()
+suit.suit
+exit()
+```
+Feature tests for extra functionality:
+Run from the command-line.
 ```
 python
 execfile('lib/suit.py')
@@ -192,7 +202,18 @@ class Value(object):
 
 - Methods to add more or delete more values(add_value and delete_value respectively) are added to the file too. This is to expand on any future games that may not require all values, or may require more.
 
-Feature test:
+Feature test for necessary requirements - values are of Ace, 2, ... , KING:
+Run from the command-line.
+```
+python
+execfile('lib/value.py')
+value=Value()
+value.value
+exit()
+```
+
+Feature test for extra functionality:
+Run from the command-line.
 ```
 python
 execfile('lib/value.py')
@@ -207,6 +228,95 @@ value.value
 exit()
 ```
 
+**card.py**
+
+```
+
+class Card(Suit, Value):
+
+    def __init__(self):
+        Suit.__init__(self)
+        Value.__init__(self)
+        self.card_list = list(itertools.product(self.suit, self.value))
+
+    def create_card_list(self):
+        self.card_list = list(itertools.product(self.suit, self.value))
+
+    def amount_of_cards(self):
+        print "The amount of cards are:", len(self.card_list)
+
+    def add_new_suit(self, suit_type):
+        self.add_suit(suit_type)
+        self.create_card_list()
+
+    def add_new_value(self, value_type):
+        self.add_value(value_type)
+        self.create_card_list()
+
+    def delete_existing_suit(self, suit_type):
+        self.delete_suit(suit_type)
+        self.create_card_list()
+        return self.card_list
+
+    def delete_existing_value(self, value_type):
+        self.delete_value(value_type)
+        self.create_card_list()
+        return self.card_list
+
+    def create_singular_card(self, suit_type, value_type):
+        self.card_list.append((suit_type.upper(), value_type.upper()))
+
+    def delete_singular_card(self, suit_type, value_type):
+        self.card_list.remove((suit_type.upper(), value_type.upper()))
+
+```
+
+- When an instance of card is created it initialises with both suit and value. Then using Pythons built in itertools it creates a product of all possible combinations saved to an instance variable self.card_list.
+
+- In the card class there is added functionality to add new suits and values, delete existing suits and values and create singular types of cards (Good for creating a Joker perhaps?).  Created so the code can be expanded on should any games require more card types.
+
+Feature test for necessary requirements - there should be 52 cards.
+Run from the command-line.
+```
+python
+execfile('lib/card.py')
+card=Card()
+card.card_list
+len(card.card_list)
+exit()
+```
+
+Feature test for additional functionality:
+Run from the command-line.
+```
+python
+execfile('lib/card.py')
+card=Card()
+card.card_list
+len(card.card_list)
+card.amount_of_cards()
+card.add_new_suit('kg')
+card.add_new_suit('KG')
+card.add_new_value('Shoes')
+card.add_new_value('SHOES')
+card.card_list
+len(card.card_list)
+card.delete_existing_suit('h')
+card.delete_existing_suit('H')
+card.suit
+card.card_list
+card.delete_existing_value('2')
+card.delete_existing_value('2')
+card.value
+card.card_list
+card.create_singular_card('KG','Shoes')
+card.card_list
+len(card.card_list)
+card.delete_singular_card('D', '5')
+card.card_list
+len(card.card_list)
+exit()
+```
 
 
 
