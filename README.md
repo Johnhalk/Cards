@@ -702,7 +702,7 @@ Add similar to game?
 Add more user stories
 ## Testing
 
-- There are 48 tests in total, all passing:
+- There are 48 tests in total, all passing using the testing framework py.test:
 
 ![Imgur](http://imgur.com/raNLo6a.png)
 
@@ -711,10 +711,15 @@ Add more user stories
 
 ![Imgur](http://imgur.com/x58KgVo.png)
 
-install Pip with this command on the command line
+- See for yourself, type the following in the command-line:
 ```
-sudo easy_install pip
+pytest
 ```
+- And for coverage:
+```
+pytest --cov
+```
+
 if you get an error run
 ```
 sudo chown -R $USER /Library/Python/2.7
