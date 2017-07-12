@@ -31,6 +31,12 @@ class Card(Suit, Value):
         self.create_card_list()
         return self.card_list
 
+    def create_singular_card(self, suit_type, value_type):
+        self.card_list.append((suit_type.upper(), value_type.upper()))
+
+    def delete_singular_card(self, suit_type, value_type):
+        self.card_list.remove((suit_type.upper(), value_type.upper()))
+
     def create_card_list(self):
         self.card_list = list(itertools.product(self.suit, self.value))
 
