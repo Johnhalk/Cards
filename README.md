@@ -192,7 +192,7 @@ exit()
 
 ## Detailed explanation of each class file:
 
-**suit.py**
+## suit.py
 ```
 class Suit(object):
 
@@ -244,7 +244,7 @@ suit.suit
 exit()
 ```
 
-**value.py**
+## value.py
 
 ```
 class Value(object):
@@ -296,7 +296,7 @@ value.value
 exit()
 ```
 
-**card.py**
+## card.py
 
 ```
 
@@ -386,7 +386,7 @@ len(card.card_list)
 exit()
 ```
 
-**deck.py**
+## deck.py
 
 ```
 class Deck(Card):
@@ -499,7 +499,7 @@ deck.shuffle_deck()
 exit()
 ```
 
-**game.py**
+## game.py
 
 ```
 MAX_START_OF_HAND = 7
@@ -641,7 +641,38 @@ game.players
 exit()
 ```
 
+## player.py
 
+```
+class Player(object):
+
+    def __init__(self, name):
+        self.name = name.upper()
+        self.hand = []
+
+    def who_am_i(self):
+        print "You are" , self.name
+
+    def my_hand(self):
+        print "Your hand is:", self.hand
+```
+
+- The player class does not inherit from anythin.  A player can exist but does not necessarily need a game.
+- For the subject of card games players have hands and initialise with a hand.
+- Players also need a name to identify in games and initialise with a name.
+
+Feature test to show functionality:
+- Ran in command-line:
+```
+python
+execfile('lib/player.py')
+player=Player('John')
+player.name
+player.hand
+player.who_am_i()
+player.my_hand()
+exit()
+```
 ##Quick feature test run:
 
 - Start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
