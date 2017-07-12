@@ -123,6 +123,70 @@ The game class is initialised by inheriting directly from a deck class and a pla
 
 The player class does not inherit from game.  It is its sole entity.  A player can exist and there can be many but they do not necessarily have a game to be paired with.
 
+## Quick feature run down to show functionality:
+
+**Deck arrives to game in perfect sequence, with all 52 card combinations of the suits and values.**
+- Type into the command line:
+```
+python
+execfile('lib/game.py')
+game=Game()
+game.deck
+exit()
+```
+
+**Deck shuffles for the game so no two cards are still in sequence**
+- Type into command line:
+```
+python
+execfile('lib/game.py')
+game=Game()
+game.deck
+game.add_player('Kurt')
+game.add_player('Gieger')
+game.add_player('Shoes')
+game.add_player('John')
+game.start_game()
+game.players[0].hand
+len(game.players[0].hand)
+game.players[1].hand
+len(game.players[1].hand)
+game.players[2].hand
+len(game.players[2].hand)
+game.players[3].hand
+len(game.players[3].hand)
+exit()
+```
+
+**Game can deal cards one at a time to each player**
+- Type into command-line:
+```
+python
+execfile('lib/game.py')
+game=Game()
+game.deck
+game.add_player('Kurt')
+game.add_player('Gieger')
+game.add_player('Shoes')
+game.start_game()
+game.add_player('John')
+game.start_game()
+game.players[0].hand
+len(game.players[0].hand)
+game.players[1].hand
+len(game.players[1].hand)
+game.players[2].hand
+len(game.players[2].hand)
+game.players[3].hand
+len(game.players[3].hand)
+game.start_game()
+len(game.players[0].hand)
+len(game.players[1].hand)
+len(game.players[2].hand)
+len(game.players[3].hand)
+exit()
+```
+
 ## Detailed explanation of each class file:
 
 **suit.py**
@@ -429,6 +493,7 @@ deck.deck
 deck.delete_singular_card_to_deck('H','Ace')
 deck.deck
 deck.shuffle_deck()
+exit()
 ```
 
 **game.py**
