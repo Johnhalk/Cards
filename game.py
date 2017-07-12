@@ -3,6 +3,7 @@ from player import Player
 import random
 
 MAX_START_OF_HAND = 7
+MIN_NUMBER_OF_PLAYERS_REQUIRED = 4
 
 class Game(Deck, Player):
 
@@ -11,10 +12,13 @@ class Game(Deck, Player):
         self.players = []
 
     def add_player(self, player_id, name):
-        new_player = Player(player_id, name)
+        new_player = Player(player_id.upper(), name.upper())
         print new_player
         self.players.append(new_player)
         print "There are currently", len(self.players) , " Players in the game"
+
+    def remove_player(self, player):
+         del self.players[player - 1]
 
     def show_hands(self):
         i=0
@@ -24,9 +28,12 @@ class Game(Deck, Player):
 
 
     def prepare_game(self):
-        self.shuffle_deck()
-        print self.shuffled
-        print self.deck
+        if len(self.players) < MIN_NUMBER_OF_PLAYERS_REQUIRED:
+            return "Not enough players to start game."
+        else:
+            self.shuffle_deck()
+            print self.shuffled
+            print self.deck
 
     def deal_one_card_per_player(self):
         if self.shuffled == False:
@@ -50,6 +57,7 @@ game.deck
 game.add_player('P1', 'John')
 game.add_player('P2', 'Eammon')
 game.add_player('P3', 'Jane')
+game.add_player('P4', 'Anthony')
 print game.players
 
 print game.prepare_game()

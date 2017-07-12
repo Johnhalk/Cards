@@ -14,7 +14,7 @@ class Card(Suit, Value):
         self.card_list = list(itertools.product(self.suit, self.value))
 
     def amount_of_cards(self):
-        print "The amount of cards are: ", len(self.card_list)
+        print "The amount of cards are:", len(self.card_list)
 
     def add_new_suit(self, suit_type):
         self.add_suit(suit_type)

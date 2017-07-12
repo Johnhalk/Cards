@@ -15,13 +15,15 @@ def test_create_card_list(card):
     card.card_list
     assert card.card_list == [('H', 'ACE'), ('H', '2'), ('H', '3'), ('H', '4'), ('H', '5'), ('H', '6'), ('H', '7'), ('H', '8'), ('H', '9'), ('H', '10'), ('H', 'JACK'), ('H', 'QUEEN'), ('H', 'KING'), ('C', 'ACE'), ('C', '2'), ('C', '3'), ('C', '4'), ('C', '5'), ('C', '6'), ('C', '7'), ('C', '8'), ('C', '9'), ('C', '10'), ('C', 'JACK'), ('C', 'QUEEN'), ('C', 'KING'), ('S', 'ACE'), ('S', '2'), ('S', '3'), ('S', '4'), ('S', '5'), ('S', '6'), ('S', '7'), ('S', '8'), ('S', '9'), ('S', '10'), ('S', 'JACK'), ('S', 'QUEEN'), ('S', 'KING'), ('D', 'ACE'), ('D', '2'), ('D', '3'), ('D', '4'), ('D', '5'), ('D', '6'), ('D', '7'), ('D', '8'), ('D', '9'), ('D', '10'), ('D', 'JACK'), ('D', 'QUEEN'), ('D', 'KING')]
 
-def test_amount_of_cards(card):
+def test_amount_of_cards(card, capfd):
     card.amount_of_cards()
-    assert "The amount of cards are: 52"
+    out, err = capfd.readouterr()
+    assert out == "The amount of cards are: 52\n"
 
-def test_add_new_suit(card):
+def test_add_new_suit(card, capfd):
     card.add_new_suit('H')
-    assert "Suit already exists."
+    out, err = capfd.readouterr()
+    assert out == "Suit already exists.\n"
     assert card.suit == ['H', 'C', 'S', 'D']
 
 def test_add_new_suit_two(card):
@@ -47,7 +49,7 @@ def test_delete_existing_suit(card):
 def test_delete_existing_suit_two(card, capfd):
     card.delete_existing_suit('T')
     out, err = capfd.readouterr()
-    assert 'Not a valid suit.\n'
+    assert out == 'Not a valid suit.\n'
 
 def test_delete_existing_value(card):
     card.delete_existing_value('3')
@@ -56,7 +58,7 @@ def test_delete_existing_value(card):
 def test_delete_existing_value_two(card, capfd):
     card.delete_existing_value('Joker')
     out, err = capfd.readouterr()
-    assert 'Not a valid value.\n'
+    assert out == 'Not a valid value.\n'
 
 def test_create_singular_card(card):
     card.create_singular_card('','Joker')
