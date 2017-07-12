@@ -1,6 +1,9 @@
 ## Deck of Cards programme
 ![Imgur](http://imgur.com/uAiB32I.png)
 
+## Introduction
+This programme is created in Python. A language I have self-taught myself while outside of Makers Academy.
+
 ## Core features of task:
 
 - There are four suits: Hearts, Clubs, Spades and Diamonds.
@@ -684,25 +687,14 @@ sudo easy_install virtualenv.
 sudo easy_install pytest
 ```
 
+## The future....?
 
-## Shuffle a deck of cards!
-Initial thoughts:
+- I would like to adapt the programme's current form and make it usable for other kind of games.  There is currently one game class, however no one game is alike.  There could be plenty of games with different rules that inherit from the foundations of the deck of cards created.  
 
-```
-def __init__(self, shuffled=False):
-    Card.__init__(self)
-    self.deck = self.card_list
-    self.shuffle_deck_compare = list(self.card_list)
-    self.shuffled = shuffled
+- I would like to expand on the current games rules.  Currently all it does is exist and deal cards, not exactly the most engaging of games!
 
-def shuffle_deck(self):
-    random.shuffle(self.deck)
-    i=0
-    while i < (len(self.deck) -1):
-        if self.shuffle_deck_compare[i] == self.deck[i]:
-            self.shuffle_deck()
-            i+=1
-        else:
-            self.shuffled = True
-            return self.card_list
-```
+- Look to creating a dealer class which controls the flow of a game.
+
+- look to create a table class in case there are requirements for placements of cards in specific games.
+
+- expand the programme into a front end model with graphics and styling.
