@@ -9,29 +9,31 @@ class Deck(Card):
         self.shuffle_deck_compare = list(self.deck)
         self.shuffled = shuffled
 
-    def split_deck(self):
-        first_half_of_deck = self.deck[1::2]
-        second_half_of_deck = self.deck[::2]
-        print first_half_of_deck
-        print second_half_of_deck
-
     def shuffle_deck(self):
         random.shuffle(self.deck)
         i=0
-        while i < (len(self.deck) -1):
-            if self.shuffle_deck_compare[i] == self.deck[i]:
+        n=0
+        while i < (len(self.deck) -1) and n < (len(self.deck) -1):
+            if (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) == (self.deck[n], self.deck[n+1]):
+                print "Reshuffling..."
                 self.shuffle_deck()
+            elif (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) != (self.deck[n], self.deck[n+1]) and n < (len(self.deck) -1):
+                n+=1
+            elif (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) != (self.deck[n], self.deck[n+1]) and n == 51:
                 i+=1
+                n=0
             else:
-                self.shuffled = True
-                return self.deck
+                print "Shuffle success!"
+        else:
+            self.shuffled = True
+            return self.deck
 
 
-    def add_new_card(self):
-        self.add_new_value()
-        self.add_new_suit()
-        self.deck = self.card_list
-        self.shuffle_deck()
+    def add_new_card(self, suit_type, value_type):
+        self.add_new_value(value_type)
+        self.add_new_suit(suit_type)
+        self.deck = list(reversed(self.card_list))
+        self.shuffle_deck_compare = list(self.deck)
         self.show_deck()
 
     def show_deck(self):

@@ -10,7 +10,6 @@ class Card(Suit, Value):
         Value.__init__(self)
         self.card_list = list(itertools.product(self.suit, self.value))
 
-
     def amount_of_cards(self):
         print "The amount of cards are: ", len(self.card_list)
 
