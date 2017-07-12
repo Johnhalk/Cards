@@ -112,7 +112,7 @@ sudo easy_install pytest-cov
 
 That should do it! Success!!
 
-NOTE: when checking pytest-cov scroll to the top to see the test file coverage.
+- Try running pytest and see the tests passing.
 
 ## File architecture design choice:
 
@@ -143,6 +143,23 @@ The game class is initialised by inheriting directly from a deck class and a pla
 The player class does not inherit from game.  It is its sole entity.  A player can exist and there can be many but they do not necessarily have a game to be paired with.
 
 ## Quick feature run down to show functionality:
+
+- **PLEASE NOTE** Due to a file pathing issue I am working to resolve, to run the feature tests you will need to add 'lib.' to each import file in all 6 file classes: suit.py , value.py, card.py, deck.py, game.py, player.py.
+
+E.g for game.py:
+
+```
+from deck import Deck
+from player import Player
+```
+Should read as follows:
+```
+from lib.deck import Deck
+from lib.player import Player
+```
+
+**WHY?** In the current setup the way the path files are pytest runs correctly.  However this causes an error when running feature tests.  The solution to fix this is that as above, however ultimately doing so breaks the correct running of pytest.  Apologies while I work to resolve the issue.
+
 
 **Deck arrives to game in perfect sequence, with all 52 card combinations of the suits and values.**
 - Type into the command line:
