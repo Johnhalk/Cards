@@ -703,7 +703,13 @@ Add more user stories
 ## Testing
 
 - There are 48 tests in total, all passing:
+
 ![Imgur](http://imgur.com/raNLo6a.png)
+
+
+- And 100% coverage for most files:
+
+![Imgur](http://imgur.com/x58KgVo.png)
 
 install Pip with this command on the command line
 ```
