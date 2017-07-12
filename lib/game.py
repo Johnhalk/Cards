@@ -51,24 +51,3 @@ class Game(Deck, Player):
     def start_game(self):
         self.prepare_game()
         self.deal_game()
-
-
-"""game=Game()
-game.deck
-game.add_player('P1', 'John')
-game.add_player('P2', 'Eammon')
-game.add_player('P3', 'Jane')
-game.add_player('P4', 'Anthony')
-print game.players
-
-print game.prepare_game()
-print game.deal_one_card_per_player()
-print game.deal_one_card_per_player()
-
-print game.players[0].hand
-print game.players[1].hand
-print game.players[2].hand
-
-
-print game.deck
-print len(game.deck)"""

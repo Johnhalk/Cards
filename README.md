@@ -147,9 +147,7 @@ class Suit(object):
             print "Not a valid suit."
 ```
 
-- When an instance of suit is created it is initialised with H, C, S, D (Hearts, Clubs, Spades, Diamonds.).  The four suits necessary for the game.
-
-- Methods to add more suits or delete more suits (add_suit and delete suit respectively) are added to the file too. This is to expand on any future games that may not require all four suits, or any games that require more.
+- **Acceptance criteria: There must be 4 suits** When an instance of suit is created it is initialised with H, C, S, D (Hearts, Clubs, Spades, Diamonds.).  The four suits necessary for the game.
 
 Feature test for necessary requirements - suits are of H, C, S, D:
 - Run from the command-line.
@@ -160,6 +158,9 @@ suit=Suit()
 suit.suit
 exit()
 ```
+
+- Methods to add more suits or delete more suits (add_suit and delete suit respectively) are added to the file too. This is to expand on any future games that may not require all four suits, or any games that require more.
+
 Feature tests for extra functionality:
 - Run from the command-line.
 ```
@@ -198,9 +199,7 @@ class Value(object):
             print "Not a valid value."
 ```
 
-- When an instance of value is created it is initialised with values ACE, 2, ... , KING.  The values necessary for our game.
-
-- Methods to add more or delete more values(add_value and delete_value respectively) are added to the file too. This is to expand on any future games that may not require all values, or may require more.
+- **Acceptance criteria: There must be 13 values** When an instance of value is created it is initialised with values ACE, 2, ... , KING.  The values necessary for our game.
 
 Feature test for necessary requirements - values are of Ace, 2, ... , KING:
 - Run from the command-line.
@@ -211,6 +210,8 @@ value=Value()
 value.value
 exit()
 ```
+
+- Methods to add more or delete more values(add_value and delete_value respectively) are added to the file too. This is to expand on any future games that may not require all values, or may require more.
 
 Feature test for extra functionality:
 - Run from the command-line.
@@ -271,9 +272,7 @@ class Card(Suit, Value):
 
 ```
 
-- When an instance of card is created it initialises with both suit and value. Then using Pythons built in itertools it creates a product of all possible combinations saved to an instance variable self.card_list.
-
-- In the card class there is added functionality to add new suits and values, delete existing suits and values and create singular types of cards (Good for creating a Joker perhaps?).  Created so the code can be expanded on should any games require more card types.
+- **Acceptance criteria: 52 cards** When an instance of card is created it initialises with both suit and value. Then using Pythons built in itertools it creates a product of all possible combinations saved to an instance variable self.card_list.
 
 Feature test for necessary requirements - there should be 52 cards.
 - Run from the command-line.
@@ -285,6 +284,8 @@ card.card_list
 len(card.card_list)
 exit()
 ```
+
+- In the card class there is added functionality to add new suits and values, delete existing suits and values and create singular types of cards (Good for creating a Joker perhaps?).  Created so the code can be expanded on should any games require more card types.
 
 Feature test for additional functionality:
 - Run from the command-line.
@@ -374,15 +375,203 @@ class Deck(Card):
             return self.deck
 ```
 
-- When an instance of deck class is created it initialises card. To meet the acceptance criteria the deck must arrive in perfect sequence (so, ace of hearts is at the bottom, two of hearts is next, etc. all the way up to king of diamonds on the top).  The card class initialises the cards the opposite way as required hence an instance variable is assigned (self.deck) to the reverse list of the card_list and meeting the criteria.
+- **Acceptance criteria: The deck arrives in perfect sequence (so, ace of hearts is at the bottom, two of hearts is next, etc. all the way up to king of diamonds on the top).** When an instance of deck class is created it initialises card. To meet the acceptance criteria the deck must arrive in perfect sequence (so, ace of hearts is at the bottom, two of hearts is next, etc. all the way up to king of diamonds on the top).  The card class initialises the cards the opposite way as required hence an instance variable is assigned (self.deck) to the reverse list of the card_list and meeting the criteria.
 
+Feature test for necessary requirements - deck in perfect sequence:
+- Run from the command-line:
+```
+python
+execfile('lib/deck.py')
+deck=Deck()
+deck.deck
+len(deck.deck)
+exit()
+```
 - A deck is initialised as not shuffled, to avoid a game starting without shuffling == True.
 
-- The other acceptance criteria: Shuffle the cards - We would like to take the deck that is in sequence and shuffle it so that no two cards are still in sequence. Means no two cards can remain in sequence after a shuffle - e.g. for a perfectly sequenced(as explained above) deck this means nowhere in the deck can two cards still be in sequence - e.g. 5 of hearts can not be before a 4 of hearts anywhere even after shuffling.  This applies for all card sequencing.
+- **Acceptance criteria: Shuffle the cards - We would like to take the deck that is in sequence and shuffle it so that no two cards are still in sequence.** This meant no two cards can remain in sequence after a shuffle - e.g. for a perfectly sequenced(as explained above) deck this means nowhere in the deck can two cards still be in sequence - e.g. 5 of hearts can not be before a 4 of hearts anywhere even after shuffling.  This applies for all card sequencing for a perfectly sequenced deck.
 
 Initially I used the .random method to randomise but this never met the criteria.  Then I considered splitting a deck into two halves of odd and even indexes then merging the odd index half and even index half back into one deck.  This however eliminated all chances of randomness and made the card order too predictable (got to stop card counting!)
 
-I then
+To counter this I created a clone of a deck that would be created upon initialisation. saved as an instance variable: self.shuffle_deck_compare. Using the random.shuffle() method built into Python on self.deck to randomise the card order I then used a while statement that allowed me to check over each pair of element indexes that no two indexes in the newly shuffled self.deck matched that of the "copy" deck self.shuffle_deck_compare! It would check over each element in the list(array) and if the boolean condition returned False it would continue down the list and increment the element it was checking.  This covered all possible chances of the deck returning two sequenced elements somewhere in the deck.  Of course if it found a matching element it would just instantly reshuffle the deck and continue until it didn't.  This would then set self.shuffled == True and return a newly shuffled deck ready for a game to be played!
+
+Feature test for necessary requirements - Shuffle the cards  - We would like to take the deck that is in sequence and shuffle it so that no two cards are still in sequence
+- Run from the command-line:
+```
+python
+execfile('lib/deck.py')
+deck=Deck()
+deck.deck
+deck.shuffle_deck_compare
+deck.shuffle_deck()
+deck.deck
+deck.shuffle_deck()
+deck.deck
+deck.shuffle_deck_compare
+exit()
+```
+
+- Similar to the card class, the deck can also add and delete card types as well as create and delete singular ones for a deck.
+
+Feature test for additional functionality:
+
+```
+python
+execfile('lib/deck.py')
+deck=Deck()
+deck.deck
+len(deck.deck)
+deck.shuffle_deck()
+deck.add_new_card_type('KG','Shoe')
+deck.delete_card_type('H','5')
+deck.create_singular_card_to_deck('','Joker')
+deck.deck
+deck.delete_singular_card_to_deck('H','Ace')
+deck.deck
+deck.shuffle_deck()
+```
+
+**game.py**
+
+```
+MAX_START_OF_HAND = 7
+MIN_NUMBER_OF_PLAYERS_REQUIRED = 4
+
+class Game(Deck, Player):
+
+    def __init__(self):
+        Deck.__init__(self, shuffled=False)
+        self.players = []
+
+    def add_player(self, name):
+        new_player = Player(name.upper())
+        self.players.append(new_player)
+        print "There are currently", len(self.players) , " Players in the game."
+
+    def remove_player(self, player):
+         del self.players[player - 1]
+
+    def prepare_game(self):
+        if len(self.players) < MIN_NUMBER_OF_PLAYERS_REQUIRED:
+            return "Not enough players to start game."
+        else:
+            self.shuffle_deck()
+            print self.shuffled
+            print self.deck
+
+    def deal_one_card_per_player(self):
+        i=0
+        while i < len(self.players):
+            draw_card = self.deck.pop()
+            self.players[i].hand.append(draw_card)
+            i += 1
+
+    def deal_game(self):
+        if len(self.players) < MIN_NUMBER_OF_PLAYERS_REQUIRED:
+            return "Not enough players to start game."
+        n=0
+        while n < MAX_START_OF_HAND  and len(self.players[len(self.players)-1].hand) < MAX_START_OF_HAND :
+            self.deal_one_card_per_player()
+            n+=1
+
+    def show_hands(self):
+        i=0
+        while i < len(self.players):
+            print self.players[i].name, "currently has" , self.players[i].hand
+            i += 1
+
+    def start_game(self):
+        self.prepare_game()
+        self.deal_game()
+```
+
+- **Acceptance criteria : The deck arrives in perfect sequence** When an instance of deck is created it initialises with a fully sequenced playable deck, unshuffled and an empty player list(array).
+
+Feature test for deck arriving in perfect sequence:
+- Run from the command-line:
+```
+python
+execfile('lib/game.py')
+game=Game()
+game.deck
+exit()
+```
+
+- **Acceptance criteria : 4 players must be waiting in the game.** Players can be added to a game using the add_player method which adds the newly created player class into an instance variable of the game self.players.  There is currently no maximum to how many players can be added to a game.  The game can not start until there are at least four players.  This is requirement is in the code as a global variable declared outside of the game class. currently "MIN_NUMBER_OF_PLAYERS_REQUIRED = 4".  This design choice has been made because minimum players necessary may easily change and we only need to change the global variable rather than every bit of our code.
+
+Feature test for four players being at table:
+- Run from the command-line:
+```
+python
+execfile('lib/game.py')
+game=Game()
+game.deck
+game.add_player('Kurt')
+game.add_player('Gieger')
+game.add_player('Shoes')
+game.start_game()
+game.add_player('John')
+game.start_game()
+game.players[0].hand
+len(game.players[0].hand)
+game.players[1].hand
+len(game.players[1].hand)
+game.players[2].hand
+len(game.players[2].hand)
+game.players[3].hand
+len(game.players[3].hand)
+exit()
+```
+
+- **Acceptance criteria : Deal the cards - We would then like to deal seven cards to each player (one card to the each player, then a second card to each player, and so on).**  A global variable is declared as: "MAX_START_OF_HAND = 7" and used to check the length of each players hand.  This allows me to modify how many cards a player starts with without editing all of the code.  I use a while loop in the deal_one_card_per_player method that pops a card from a deck into the player class's hand.
+
+Feature test for each player only receiving 7 cards in hand -
+- Ran in command-line:
+```
+python
+execfile('lib/game.py')
+game=Game()
+game.deck
+game.add_player('Kurt')
+game.add_player('Gieger')
+game.add_player('Shoes')
+game.start_game()
+game.add_player('John')
+game.start_game()
+game.players[0].hand
+len(game.players[0].hand)
+game.players[1].hand
+len(game.players[1].hand)
+game.players[2].hand
+len(game.players[2].hand)
+game.players[3].hand
+len(game.players[3].hand)
+game.start_game()
+len(game.players[0].hand)
+len(game.players[1].hand)
+len(game.players[2].hand)
+len(game.players[3].hand)
+exit()
+```
+
+- Players can also be removed from a game.
+
+Feature test to show added functionality:
+- Ran in command-line:
+```
+python
+execfile('lib/game.py')
+game=Game()
+game.deck
+game.add_player('Kurt')
+game.add_player('Gieger')
+game.players[0].name
+game.players[1].name
+game.remove_player(1)
+game.players[0].name
+game.players
+exit()
+```
 
 
 ##Quick feature test run:

@@ -29,10 +29,12 @@ class Deck(Card):
     def create_singular_card_to_deck(self, suit_type, value_type):
         self.create_singular_card(suit_type, value_type)
         self.deck = list(reversed(self.card_list))
+        self.shuffle_deck_compare = list(self.deck)
 
     def delete_singular_card_from_deck(self, suit_type, value_type):
         self.delete_singular_card(suit_type, value_type)
         self.deck = list(reversed(self.card_list))
+        self.shuffle_deck_compare = list(self.deck)
 
     def shuffle_deck(self):
         random.shuffle(self.deck)
@@ -52,16 +54,3 @@ class Deck(Card):
         else:
             self.shuffled = True
             return self.deck
-
-
-
-'''
-deck=Deck()
-print deck.shuffle_deck()
-print deck.show_deck()
-print deck.shuffle_deck()
-print deck.show_deck()
-print deck.shuffled
-print deck.add_new_card()
-print deck.card_list
-'''
