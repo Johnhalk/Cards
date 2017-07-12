@@ -90,13 +90,29 @@ It is very likely Linux has Python already installed.
 
 - To check you installed it correctly type the following into the command-line:
 ```
-$ python3 --version
-Python 3.5.1 (this should be the output)
+$ python --version
 ```
 
-- Install pip
-- Install pytest
-- Install pytest-cov
+- Then install pip via the command-line:
+```
+sudo easy_install pip
+```
+- To check you installed it correctly type the following into the command-line:
+```
+$ pip --version
+```
+- Then install pytest via the command-line:
+```
+sudo easy_install pytest
+```
+- Then install pytest-cov via the command-line:
+```
+sudo easy_install pytest-cov
+```
+
+That should do it! Success!!
+
+NOTE: when checking pytest-cov scroll to the top to see the test file coverage.
 
 ## File architecture design choice:
 
@@ -673,33 +689,7 @@ player.who_am_i()
 player.my_hand()
 exit()
 ```
-##Quick feature test run:
 
-- Start the Python interactive interpreter. The Python interpreter can be invoked by typing the command "python" into the command-line interface followed by the "return" key
-- **Type this into terminal:**
-```
-python
-```
-
-- Next we need to load the file directly into the interactive interpreter. Type execfile('game.py') Here you will have loaded up the game and logic to play.
-- **Type this into terminal:**
-```
-execfile('game.py')
-```
-
-- Below runs the entire game, copy and paste into the terminal for a fast demonstration of the game running - game=Game() creates a new instance of game
-
-```
-
-```
-
-## To Do List ##
-
-Add both feature tests and unit tests for each individual class file as well as an overall one for game class to run code for user.
-
-Add method to deck class to create a new card to add to deck.
-Add similar to game?
-Add more user stories
 ## Testing
 
 - There are 48 tests in total, all passing using the testing framework py.test:
@@ -718,18 +708,6 @@ pytest
 - And for coverage:
 ```
 pytest --cov
-```
-
-if you get an error run
-```
-sudo chown -R $USER /Library/Python/2.7
-```
-
-Then run the following:
-```
-sudo easy_install pip.
-sudo easy_install virtualenv.
-sudo easy_install pytest
 ```
 
 ## The future....?
