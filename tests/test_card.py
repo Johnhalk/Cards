@@ -1,4 +1,6 @@
 import pytest
+import os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib'))
 from card import Card
 
 @pytest.fixture

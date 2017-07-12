@@ -1,5 +1,5 @@
-from value import Value
 import pytest
+from value import Value
 
 @pytest.fixture
 def value():

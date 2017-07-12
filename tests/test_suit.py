@@ -1,5 +1,5 @@
-from suit import Suit
 import pytest
+from suit import Suit
 
 @pytest.fixture
 def suit():
