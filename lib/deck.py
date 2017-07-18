@@ -46,7 +46,7 @@ class Deck(Card):
                 self.shuffle_deck()
             elif (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) != (self.deck[n], self.deck[n+1]) and n < (len(self.deck) -1):
                 n+=1
-            elif (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) != (self.deck[n], self.deck[n+1]) and n == (len(self.deck) -1):
+            elif (self.shuffle_deck_compare[i], self.shuffle_deck_compare[i+1]) != (self.deck[n-1], self.deck[n]) and n == (len(self.deck) -1):
                 i+=1
                 n=0
             else:

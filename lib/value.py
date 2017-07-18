@@ -1,4 +1,5 @@
 class Value(object):
+    
     def __init__(self):
         self.value = ['ACE', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'JACK', 'QUEEN', 'KING']
 
@@ -15,15 +16,3 @@ class Value(object):
             return self.value
         else:
             print "Not a valid value."
-
-
-
-'''
-value_new=Value()
-print value_new.value
-value_new.add_value()
-print value_new.value
-
-value_new.delete_value()
-print value_new.value
-'''

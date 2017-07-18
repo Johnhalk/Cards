@@ -1,6 +1,4 @@
 import itertools
-import random
-import os, sys
 from lib.suit import Suit
 from lib.value import Value
 
@@ -40,28 +38,3 @@ class Card(Suit, Value):
 
     def delete_singular_card(self, suit_type, value_type):
         self.card_list.remove((suit_type.upper(), value_type.upper()))
-
-
-
-
-'''
-card=Card()
-print card.value
-print card.suit
-print card.card_list
-print card.amount_of_cards()
-card.add_new_suit()
-print card.amount_of_cards()
-print card.card_list
-card.add_new_value()
-print card.amount_of_cards()
-print card.card_list
-card.add_new_value()
-print card.amount_of_cards()
-print card.card_list
-card.add_new_suit()
-print card.amount_of_cards()
-print card.card_list
-print card.delete_exisiting_suit()
-print card.delete_exisiting_value()
-'''

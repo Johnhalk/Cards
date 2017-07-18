@@ -93,7 +93,7 @@ def test_show_hands_two(game, capfd):
     game.deal_one_card_per_player()
     game.show_hands()
     out, err = capfd.readouterr()
-    assert out == "There are currently 1  Players in the game.\nJOHN currently has [('H', 'ACE')]\n"
+    assert out == "There are currently 1  Players in the game.\nJOHN currently has [('D', 'KING')]\n"
 
 def test_start_game(game):
     game.start_game()

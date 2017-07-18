@@ -16,16 +16,3 @@ class Suit(object):
             return self.suit
         else:
             print "Not a valid suit."
-
-
-
-
-'''
-suit_new=Suit()
-print suit_new.suit
-suit_new.add_suit()
-print suit_new.suit
-
-suit_new.delete_suit()
-print suit_new.suit
-'''

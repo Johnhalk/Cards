@@ -1,5 +1,3 @@
-import random
-import os, sys
 from lib.deck import Deck
 from lib.player import Player
 
@@ -31,7 +29,7 @@ class Game(Deck, Player):
     def deal_one_card_per_player(self):
         i=0
         while i < len(self.players):
-            draw_card = self.deck.pop()
+            draw_card = self.deck.pop(0)
             self.players[i].hand.append(draw_card)
             i += 1
 
