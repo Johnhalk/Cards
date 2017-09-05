@@ -25,6 +25,6 @@ def test_delete_value(value):
     assert value.value == ['ACE', '3', '4', '5', '6', '7', '8', '9', '10', 'JACK', 'QUEEN', 'KING']
 
 def test_delete_suit_two(value, capfd):
-    value.delete_value('Joker')
+    value.delete_value('Jokers')
     out, err = capfd.readouterr()
     assert out == "Not a valid value.\n"
